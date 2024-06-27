@@ -19,14 +19,14 @@ public class CommentsController : ControllerBase
         _context = context;
     }
 
-    
+
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Comment>>> GetComments()
     {
         return await _context.Comments.ToListAsync();
     }
 
-   
+
     [HttpGet("{id}")]
     public async Task<ActionResult<Comment>> GetComment(int id)
     {
@@ -40,7 +40,7 @@ public class CommentsController : ControllerBase
         return comment;
     }
 
-  
+
     [HttpPost]
     public async Task<ActionResult<Comment>> PostComment(Comment comment)
     {
@@ -50,7 +50,7 @@ public class CommentsController : ControllerBase
         return CreatedAtAction(nameof(GetComment), new { id = comment.Id }, comment);
     }
 
-    
+
     [HttpPut("{id}")]
     public async Task<IActionResult> PutComment(int id, Comment comment)
     {
@@ -80,7 +80,7 @@ public class CommentsController : ControllerBase
         return NoContent();
     }
 
-   
+
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteComment(int id)
     {
